@@ -1,61 +1,128 @@
-html,body {
-    font-family: 'Poppins', sans-serif;
+* {
     margin: 0;
     padding: 0;
-    height: 100vh;
-    display: grid;
-    place-items: center;
-    background: #c7c7c7;
-}
-
-.container {
-            max-width: 270px;
-}
-.hero {
-    position: relative;
-    background-image: linear-gradient(rgba(82, 0, 255, 0.8), rgba(82, 0, 255, 0.8)), url('bg.jpg');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-.hero p {
-    margin: 0;
-    font-size: 12px;
-}
-
-.form {
-    background: #fff;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.form label {
-    font-size: 10px;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.form input {
-    background: #ededed;
-    border: 1px solid #fff;
-    margin-bottom: 10px;
-    padding: 10px;
-    width: 100%;
     box-sizing: border-box;
+    /* The default value of the CSS box-sizing property is typically content-box, 
+    which includes only the content within the element's dimensions. 
+    If you have applied padding or borders to an element, it can cause the total 
+    height to exceed the specified vh value. Setting box-sizing: border-box; 
+    for the relevant elements ensures that padding and borders are included 
+    within the specified dimensions. */
 }
 
-.form button {
-    padding: 10px 15px;
-    background: #5200ff;
-    color: #fff;
-    cursor: pointer;
-    border: none;
-    width: 100%;
-    margin-top: 20px;
-    margin-bottom: 40px;
+body {
+    margin: 0;
+    font-family: 'Poppins';
+    
 }
+
+.left-col {
+    background: #5200FF;
+    color: white;
+    position: relative;
+    text-align: center;
+}
+
+.left-col:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.22;
+    background-image: url('bg.jpg');
+    background-size: cover;
+    background-position: 100%;
+}
+
+.content {
+    position: relative;
+}
+
+.left-col, .right-col {
+    padding: 6.75rem 8vw;
+}
+
+.left-col, .right-col {
+    padding: 6.75rem 8vw; /* 108/16 = 6.75rem */
+}
+/* In most web browsers is 16 pixels. By dividing a pixel value by 16, it allows for a convenient conversion to rem units, 
+which are relative to the root element's font-size. For example, if the root element's font-size is set to 16 pixels and 
+you have a padding value of 108 pixels, dividing it by 16 gives you a value of 6.75. This value is then used as the padding 
+in rem units, meaning it will be 6.75 times the font-size of the root element. Using rem units instead of pixels allows for 
+more flexible and scalable designs. It ensures that elements adapt to changes in the font-size of the root element or when 
+the user adjusts their browser's default font size settings. */
+
+h1 {
+    margin: 0;
+    font-family: 'Bebas Neue';
+    font-weight: normal;
+    font-size: 4rem;
+    line-height: 1.2em;
+}
+
+p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+label {
+    display: block;
+    font-size: 1.125rem;
+    margin-bottom: .77rem;
+}
+
+input {
+    width: 100%;
+    background: #EDEDED;
+    border: 1px solid #C7C7C7;
+    font-size: 1rem;
+    padding: .75rem;
+    outline: none;
+    margin-bottom: 2.5em;
+}
+
+button {
+    width: 100%;
+    background: #5200FF;
+    padding: 1em;
+    color: white;
+    border: none;
+    font-size: 1.125rem;
+    cursor: pointer;
+}
+
+
+@media only screen and (min-width: 770px) {
+    .form {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 2em;
+    }
+    
+    button {
+        width: auto;
+        padding: 1em 2.5em;
+    }
+}
+
+@media only screen and (min-width: 1260px) {
+    body {
+        display: flex;
+    }
+    
+    .left-col, .right-col {
+        flex-basis: 0;
+        flex-grow: 1;
+        height: 100vh;
+        display: grid;
+        place-items: center;
+    }
+
+    .left-col {
+        text-align: right;
+    }
+}
+
